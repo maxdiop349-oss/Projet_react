@@ -1,3 +1,6 @@
+import { ImQuotesLeft } from "react-icons/im"
+import { menuListes } from "./data/data"
+import { Services } from "./data/service"
 
 
 function App() {
@@ -5,18 +8,18 @@ function App() {
 
   return (
     <>
-    <body className="">
-      <header className="text-white h-screen  py-2 bg-cover bg-center bg-[url('oie.jpg')] mt-2 ">
+    <body>
+      <header className="text-white h-screen  py-2 bg-cover bg-center  bg-[url('oie.jpg')] brightness-100">
          <nav className="px-6 py-5  ">
 <div className="max-w-7xl mx-auto flex items-center justify-between">
   <div >
    <img src="logo.svg" alt="logo" className="h-10 w-auto px-2"/></div>
    <div className="flex items-center gap-6 px-5">
-<ul className="hidden md:flex gap-8 ">
-          <li className="hover:text-gray-400 cursor-pointer">Home</li>
-          <li className="hover:text-gray-400 cursor-pointer">About</li>
-          <li className="hover:text-gray-400 cursor-pointer">Services</li>
-          <li className="hover:text-gray-400 cursor-pointer">Contact</li>
+<ul className="hidden md:flex gap-8 hover:text-gray-400 cursor-pointer ">
+   {menuListes.map((liste,index)=>(
+
+    <li key={index}><a href={liste.link}>{liste.titre}</a></li>
+   ))}       
         </ul>
             <a href="tel:+221781484389" className="flex  border text-white px-4 py-3 rounded transition">           
             <span className="hidden sm:inline">+221 78 148 43 89</span>
@@ -35,32 +38,25 @@ function App() {
         <h1 className="text-center p-7 text-green-900 text-4xl">Our Services</h1>
       <div className="mx-auto  h-1 w-20 bg-yellow-300"></div>
       <div className="grid grid-cols-3 gap-6 p-8 m-7">
-        <div >
-          <img src="service-1.jpg"/>
-          <h1 className=" text-[#536941] text-2xl p-4">Web Design</h1>
-          <p className="text-[#536941] p-4"> Focus on how you can help and benefit your user. Use simple words so that you don't confuse people.</p>
+        {Services.map((item,index) =>(
+ <div key={index}>
+           <img
+          src={item.image}
+          alt={item.titre}
+          />
+          <h1 className=" text-[#536941] text-2xl p-4">{item.titre}</h1>
+          <p className="text-[#536941] p-4"> {item.description}.</p>
         </div>
-        <div>
-          <img src="service-2.jpg"/>
-          <h1 className="text-[#536941] p-4 text-2xl">Grapic Design</h1>
-          <p  className=" text-[#536941] p-4">Focus on how you can help and benefit your user. Use simple words so that you don't confuse people.</p>
-        </div>
-        <div>
-          <img src="service-3.jpg"/>
-          <h1 className=" text-[#536941] p-4 text-2xl">Content Creation</h1>
-          <p className="text-[#536941] p-4">Focus on how you can help and benefit your user. Use simple words so that you don't confuse people.</p>
-        </div>
+      ))}
       </div>
       </section>
-<section className="bg-[#5369411a] p-6 ">
- <h1 className="text-center">
-  <img src="quotes.svg" alt="quotes" className="block mx-auto " />
-</h1>
+<section className="bg-[#5369411a] p-6 flex flex-col items-center  ">
+<ImQuotesLeft className="size-15 text-[#536942e1]" />
 <p className="buda text-3xl text-center text-[#536942e1] m-4">“Original and with an innate understanding of their<br/> customer’s needs, the team at Love Nature are
 <br/> always a pleasure to work with.”</p>
 <div>
   <img src="fem.png" className="block mx-auto w-15 p-2"/>
-  <p className="text-center text-[#536942E1]">Jane Miller</p>
+  <p className="text-center text-[#536942E1]">Jane Miller</p> 
 </div>
   </section> 
   <section className="grid grid-cols-2  ">
